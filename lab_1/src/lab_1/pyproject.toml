@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "lab_1"
+version = "1.0.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aioredis = "*"
+asyncio = "*"
+motor = "*"
+
+
+[tool.poetry.scripts]
+# redis
+redis_add_values = 'lab_1.command.redis:run_add_values'
+redis_get_values = 'lab_1.command.redis:run_get_values'
+redis_update_values = 'lab_1.command.redis:run_update_values'
+redis_delete_values = 'lab_1.command.redis:run_delete_values'
+# mongo
+mongo_add_values = 'lab_1.command.mongodb:run_add_values'
+mongo_get_values = 'lab_1.command.mongodb:run_get_values'
+mongo_get_aggregated_values = 'lab_1.command.mongodb:run_aggregated_values'
+
+[build-system]
+requires = ["poetry-core==1.5.2"]
+build-backend = "poetry.core.masonry.api"

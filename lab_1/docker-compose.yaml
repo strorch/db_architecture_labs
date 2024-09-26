@@ -1,0 +1,36 @@
+version: '3.8'
+
+
+services:
+  mongodb:
+    image: mongo:8.0
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+
+  app:
+    build:
+      context: docker/build
+      dockerfile: Dockerfile
+      args:
+        - USER_ID
+        - GROUP_ID
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ./src/lab_1:/home/dev/app
+    environment:
+      MONGO_URI: mongodb://root:example@mongodb:27017/
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      Server_host: 0.0.0.0
+      Server_port: 6005
+    command: sleep 100d
