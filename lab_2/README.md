@@ -6,21 +6,12 @@
 
 тестування завдань
 
-завдання 1
+1. генеруємо тестові дані
 
-    poetry run mongo_add_values
+    poetry run generate
 
-завдання 2
+2. запускаємо тестування моделі на даних
 
-    poetry run mongo_get_values
+    poetry run main
 
-завдання 3
-
-    poetry run mongo_get_aggregated_values
-
-завдання 4
-
-    poetry run redis_add_values
-    poetry run redis_get_values
-    poetry run redis_update_values
-    poetry run redis_delete_values
+переглянути результат можна в папці src/lab_2/results
