@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: docker/build
+      dockerfile: Dockerfile
+      args:
+        - USER_ID
+        - GROUP_ID
+    volumes:
+      - ./src/lab_2:/home/dev/app
+    environment:
+      Server_host: 0.0.0.0
+      Server_port: 6005
+    command: sleep 100d

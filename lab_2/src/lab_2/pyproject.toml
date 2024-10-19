@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lab_2"
+version = "1.0.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+seaborn = "*"
+scikit-learn = "*"
+graphviz = "*"
+
+[tool.poetry.scripts]
+main = 'lab_2.main:main'
+generate = 'lab_2.generator:main'
+
+[build-system]
+requires = ["poetry-core==1.5.2"]
+build-backend = "poetry.core.masonry.api"
