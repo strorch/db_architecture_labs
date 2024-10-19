@@ -18,7 +18,9 @@ async def add_key_value(redis: Redis, key: str, value: str) -> None:
 
 async def get_key_value(redis: Redis, key: str) -> None:
     value = await redis.get(key)
-    dump = value.decode('utf-8')
+    dump = None
+    if value:
+        dump = value.decode('utf-8')
     print(f"Get key '{key}' has value '{dump}'")
 
 async def delete_key(redis: Redis, key: str) -> None:
